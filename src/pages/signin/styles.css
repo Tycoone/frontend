@@ -1,0 +1,11 @@
+label {
+    /* color: rgba(0, 0, 0, 0.699)!important; */
+    /* font-weight: bold!important; */
+    font-family: 'Source Sans Pro','Arial'!important;
+}
+button{
+    background-color:#3984dd
+}
+button:hover{
+    background-color:#5aa2fae3!important;
+}
