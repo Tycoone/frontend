@@ -10,7 +10,7 @@ import { Link } from '@material-ui/core';
 const useStyles = makeStyles((theme) => {
     return {
         paper: {
-            margin: theme.spacing(10, 4),
+            margin: theme.spacing(8, 4),
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -160,9 +160,9 @@ const Signup = () => {
                                         Sign In
                                     </Button>
                                     <Typography style={{ textAlign: 'center' }}>
-                                        Dont’t have an account?
-                                            <Link href="/signup" color="primary" className={styles.signup}>
-                                            Sign Up
+                                        Already have an Account?
+                                            <Link href="/signin" color="primary" className={styles.signup}>
+                                            Sign In
                                             </Link>
                                     </Typography>
                                 </form>
