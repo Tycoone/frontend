@@ -91,7 +91,7 @@ const Authpage = () => {
                                     <Signin />
                                 </Fade>
                             </Route>
-                            <Route path="/">
+                            <Route exact path="/">
                                 <Fade direction="right">
                                     <Signin />
                                 </Fade>
