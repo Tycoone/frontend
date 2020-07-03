@@ -75,7 +75,7 @@ const Signup = () => {
                                 Please create an account to continue
                             </Typography>
                             <div className={styles.formContainer} >
-                                <form className={styles.form} noValidate>
+                                <form className={styles.form} noValidate method="post">
                                     <Grid container spacing={2}>
                                         <Grid item xs={6} sm={6} md={6}>
                                             <TextField

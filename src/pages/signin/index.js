@@ -68,7 +68,7 @@ const Signin = () => {
                                 Please sign in to continue
                             </Typography>
                             <div className={styles.formContainer} >
-                                <form className={styles.form} noValidate>
+                                <form className={styles.form} noValidate method="post">
                                     <TextField
                                         className={styles.input}
                                         variant="outlined"
