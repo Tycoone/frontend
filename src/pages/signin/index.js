@@ -3,8 +3,9 @@ import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import './styles.css';
-import { Container, makeStyles, Button, Checkbox, FormControlLabel, Typography, Paper } from '@material-ui/core';
+import { Container, makeStyles, Button, Checkbox, FormControlLabel, Typography} from '@material-ui/core';
 import { Link } from '@material-ui/core';
+import { Link as RLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => {
     return {
@@ -55,8 +56,8 @@ const Signin = () => {
     const styles = useStyles();
     return (
         <Grid container>
-            <Grid item xs="0" sm="0" md="2" lg="2"></Grid>
-            <Grid item xs="12" sm="12" md="8" lg="8">
+            <Grid item xs={0} sm={0} md={2} lg={2}></Grid>
+            <Grid item xs={12} sm={12} md={8} lg={8}>
                 <Box>
                     <Container maxWidth="sm">
                         <div className={styles.paper}>
@@ -90,13 +91,13 @@ const Signin = () => {
                                         autoComplete="current-pasword"
                                     />
                                     <Grid container>
-                                        <Grid item xs="6" sm="6" md="6">
+                                        <Grid item xs={6} sm={6} md={6}>
                                             <FormControlLabel
                                                 control={<Checkbox value="remember" color="primary" />}
                                                 label="Remember me"
                                             />
                                         </Grid>
-                                        <Grid item xs="6" sm="6" md="6">
+                                        <Grid item xs={6} sm={6} md={6}>
                                             <Typography>
                                                 <Link href="#forgot-pasword" color="error" className={styles.forgotPasword}>
                                                     Forgot password?
@@ -114,11 +115,13 @@ const Signin = () => {
                                     >
                                         Sign In
                                     </Button>
-                                    <Typography style={{textAlign:'center'}}>
-                                        Dont’t have an account?  
-                                            <Link href="/signup" color="primary" className={styles.signup}>
-                                                Sign Up
+                                    <Typography style={{ textAlign: 'center' }}>
+                                        Dont’t have an account? {' '}
+                                        <RLink to="/signup">
+                                            <Link color="primary" className={styles.signup}>
+                                                SignUp
                                             </Link>
+                                        </RLink>
                                     </Typography>
                                 </form>
                             </div>
@@ -126,7 +129,7 @@ const Signin = () => {
                     </Container>
                 </Box>
             </Grid>
-            <Grid item xs="0" sm="0" md="2" lg="2"></Grid>
+            <Grid item xs={0} sm={0} md={2} lg={2}></Grid>
         </Grid>
     );
 };

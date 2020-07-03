@@ -5,14 +5,16 @@ import { CssBaseline } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import Image from '../../images/photo-1563132337-f159f484226c.webp';
 import Signup from '../signup';
-
+import Signin from '../signin';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Fade } from 'react-awesome-reveal';
 
 
 const useStyles = makeStyles((theme) => {
     return {
         root: {
             height: '100vh',
-            backgroundColor:'#FFFFFF'
+            backgroundColor: '#FFFFFF'
         },
         image: {
             width: '100%',
@@ -28,7 +30,7 @@ const useStyles = makeStyles((theme) => {
             background: 'linear-gradient(180deg, rgba(111, 111, 172, 0) 0%, #474666 100%)'
         },
         paper: {
-            backgroundColor:'#FFFFFF',
+            backgroundColor: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column'
         },
@@ -36,11 +38,11 @@ const useStyles = makeStyles((theme) => {
             position: 'absolute',
             left: '70px',
             bottom: '140px',
-            height:'200px',
+            height: '200px',
             fontFamily: 'Source Sans Pro'
         },
-        h2 :{
-            display:'inline-block',
+        h2: {
+            display: 'inline-block',
             width: '270px',
             height: '100px',
             fontStyle: 'normal',
@@ -51,7 +53,7 @@ const useStyles = makeStyles((theme) => {
             transform: 'translateY(19px)'
 
         },
-        h3:{
+        h3: {
             fontStyle: 'normal',
             fontWeight: 'normal',
             fontSize: '29px',
@@ -65,22 +67,41 @@ const useStyles = makeStyles((theme) => {
 const Authpage = () => {
     const styles = useStyles();
     return (
-        <Box>
-            <Grid container component="main" spacing={0}>
-                <CssBaseline />
-                <Grid item xs={false} sm={6} md={6} className={styles.image}>
-                    <Box className={styles.overlay} >
-                        <div className={styles.textCard}>
-                            <h2 className={styles.h2}>Moments For Startups</h2>                          
-                            <h3 className={styles.h3}>Connect. Scale. Grow</h3>                          
-                        </div>
-                    </Box>
+        <Router>
+            <Box>
+                <Grid container component="main" spacing={0}>
+                    <CssBaseline />
+                    <Grid item xs={false} sm={6} md={6} className={styles.image}>
+                        <Box className={styles.overlay} >
+                            <div className={styles.textCard}>
+                                <h2 className={styles.h2}>Moments For Startups</h2>
+                                <h3 className={styles.h3}>Connect. Scale. Grow</h3>
+                            </div>
+                        </Box>
+                    </Grid>
+                    <Grid className={styles.paper} item xs={12} sm={6} md={6}>
+                        <Switch>
+                            <Route path="/signup">
+                                <Fade direction="right">
+                                    <Signup />
+                                </Fade>
+                            </Route>
+                            <Route path="/signin">
+                                <Fade direction="right">
+                                    <Signin />
+                                </Fade>
+                            </Route>
+                            <Route path="/">
+                                <Fade direction="right">
+                                    <Signin />
+                                </Fade>
+                            </Route>
+                        </Switch>
+
+                    </Grid>
                 </Grid>
-                <Grid className={styles.paper} item xs={12} sm={6} md={6}>
-                    <Signup />
-                </Grid>
-            </Grid>
-        </Box>
+            </Box>
+        </Router>
     );
 };
 
