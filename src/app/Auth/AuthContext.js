@@ -1,4 +1,17 @@
-import {useContext} from 'react';
+import React, { createContext, useState } from 'react';
+export const AuthContext = createContext();
 
-const Authenticated = useContext([]);
-
+export const AuthProvider = props => {
+    const [login, setLogin] = useState(
+        {
+            email: '',
+            password: '',
+            isAuthenticated:false
+        }
+    );
+    return (
+        <AuthContext.Provider value={[login, setLogin]}>
+            {props.children}
+        </AuthContext.Provider>
+    );
+}

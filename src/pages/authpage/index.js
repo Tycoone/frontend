@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core';
 import Image from '../../images/photo-1563132337-f159f484226c.webp';
 import Signup from '../signup';
 import Signin from '../signin';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {  Route, Switch } from 'react-router-dom';
 import { Fade } from 'react-awesome-reveal';
 
 
@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
+            zIndex:'100'
         },
         overlay: {
             height: '100%',
@@ -64,44 +65,44 @@ const useStyles = makeStyles((theme) => {
     }
 });
 
-const Authpage = () => {
+const Authpage = ({children}) => {
     const styles = useStyles();
     return (
-        <Router>
             <Box>
                 <Grid container component="main" spacing={0}>
                     <CssBaseline />
                     <Grid item xs={false} sm={6} md={6} className={styles.image}>
                         <Box className={styles.overlay} >
-                            <div className={styles.textCard}>
-                                <h2 className={styles.h2}>Moments For Startups</h2>
-                                <h3 className={styles.h3}>Connect. Scale. Grow</h3>
-                            </div>
+                            <Fade direction="left" triggerOnce>
+                                <div className={styles.textCard}>
+                                    <h2 className={styles.h2}>Moments For Startups</h2>
+                                    <h3 className={styles.h3}>Connect. Scale. Grow</h3>
+                                </div>
+                            </Fade>
                         </Box>
                     </Grid>
                     <Grid className={styles.paper} item xs={12} sm={6} md={6}>
-                        <Switch>
+                        <Switch  >
                             <Route path="/signup">
-                                <Fade direction="right">
-                                    <Signup />
-                                </Fade>
+
+                                <Signup />
+
                             </Route>
                             <Route path="/signin">
-                                <Fade direction="right">
-                                    <Signin />
-                                </Fade>
+
+                                <Signin />
+
                             </Route>
-                            <Route exact path="/">
-                                <Fade direction="right">
-                                    <Signin />
-                                </Fade>
-                            </Route>
+                            {/* <Route exact path="/">
+
+                                <Signin />
+
+                            </Route> */}
                         </Switch>
 
                     </Grid>
                 </Grid>
             </Box>
-        </Router>
     );
 };
 
