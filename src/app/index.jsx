@@ -4,6 +4,8 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { AuthProvider } from './Auth/AuthContext'
 import Nav from './ui/components/Nav/Nav';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Signin from '../pages/signin';
+import Signup from '../pages/signup';
 
 const theme = createMuiTheme({
     palette: {
@@ -20,31 +22,46 @@ const theme = createMuiTheme({
     }
 });
 
+
 function App() {
     return (
         <AuthProvider>
             <ThemeProvider theme={theme}>
-                <Router>
-                    <Switch>
-                        <div>
-                            <Route path="/home">
-                                <Nav />
-                            </Route>
-                            <Route path="/" exact>
-                                <Nav />
-                            </Route>
-                            <Route path="/signin">
-                                <Authpage />
-                            </Route>
-                            <Route path="/signup">
-                                <Authpage />
-                            </Route>
-                        </div>
-                    </Switch>
-                </Router>
+                <AppRoute />
             </ThemeProvider>
         </AuthProvider>
 
+    )
+}
+const AppRoute = () => {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/home">
+                    <AppHome />
+                </Route>
+                <Route path="/" exact>
+                    <AppHome />
+                </Route>
+                <Route path="/signin">
+                    <Authpage>
+                        <Signin />
+                    </Authpage>
+                </Route>
+                <Route path="/signup">
+                    <Authpage>
+                        <Signup />
+                    </Authpage>
+                </Route>
+            </Switch>
+        </Router>
+    )
+};
+const AppHome = () => {
+    return (
+        <div>
+            <Nav />
+        </div>
     )
 }
 

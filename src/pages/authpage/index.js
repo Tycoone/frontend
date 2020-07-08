@@ -3,10 +3,10 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { CssBaseline } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
-import Image from '../../images/photo-1563132337-f159f484226c.webp';
-import Signup from '../signup';
-import Signin from '../signin';
-import {  Route, Switch } from 'react-router-dom';
+import Image from '../../images/14346691371363.jpg';
+// import Signup from '../signup';
+// import Signin from '../signin';
+// import {  Route, Switch } from 'react-router-dom';
 import { Fade } from 'react-awesome-reveal';
 
 
@@ -82,23 +82,7 @@ const Authpage = ({children}) => {
                         </Box>
                     </Grid>
                     <Grid className={styles.paper} item xs={12} sm={6} md={6}>
-                        <Switch  >
-                            <Route path="/signup">
-
-                                <Signup />
-
-                            </Route>
-                            <Route path="/signin">
-
-                                <Signin />
-
-                            </Route>
-                            {/* <Route exact path="/">
-
-                                <Signin />
-
-                            </Route> */}
-                        </Switch>
+                        {children}
 
                     </Grid>
                 </Grid>

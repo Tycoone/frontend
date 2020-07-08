@@ -1,17 +1,3 @@
-import React from 'react';
-import {style} from './index.scss';
-
-const Error = ({}) => {
-
-    return (
-        <div className={style}>
-            
-        </div>
-    );
-};
-
-Error.propTypes = {
-
-};
+import Error404 from './Error-404';
 
 export default Error;

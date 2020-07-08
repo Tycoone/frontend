@@ -8,8 +8,6 @@ import { Container, makeStyles, fade, Button, InputLabel, Checkbox, FormControlL
 // import { Link } from '@material-ui/core';
 import { Link as RLink } from 'react-router-dom';
 import { blue } from '@material-ui/core/colors';
-import { Fade } from 'react-awesome-reveal';
-
 
 const useStyles = makeStyles((theme) => {
     return {
@@ -71,7 +69,6 @@ const Signup = () => {
         e.preventDefault();
     };
     return (
-        <Fade direction="left" triggerOnce cascade>
             <Grid container>
                 <Grid item xs={false} sm={false} md={2} lg={2}></Grid>
                 <Grid item xs={12} sm={12} md={8} lg={8}>
@@ -186,7 +183,6 @@ const Signup = () => {
                 </Grid>
                 <Grid item xs={false} sm={false} md={2} lg={2}></Grid>
             </Grid>
-        </Fade>
     );
 };
 

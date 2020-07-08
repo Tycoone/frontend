@@ -6,7 +6,7 @@ export const AuthProvider = props => {
         {
             email: '',
             password: '',
-            isAuthenticated:false
+            isAuthenticated:false 
         }
     );
     return (
