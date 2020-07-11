@@ -163,6 +163,7 @@ const Signup = () => {
                                             variant="contained"
                                             color="primary"
                                             className={styles.submit}
+                                            disableElevation
                                         >
                                             Sign Up
                                     </Button>
