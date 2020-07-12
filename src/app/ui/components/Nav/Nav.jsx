@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AppBar, Avatar, Toolbar, Typography, InputBase, IconButton, Menu, MenuItem, Grid, Switch, Link } from '@material-ui/core'
+import { AppBar, Avatar, Toolbar, Typography, InputBase, IconButton, Menu, MenuItem, Grid, Switch, Link, SvgIcon } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import HomeIcon from '@material-ui/icons/Home'
 import PeopleIcon from '@material-ui/icons/People';
