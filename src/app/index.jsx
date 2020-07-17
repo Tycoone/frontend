@@ -104,9 +104,9 @@ const userDetails = {
                 pageLink: "/VirginAtlantic"
             },
             duration: {
-                from:"June 2019",
-                to:"May 2020",
-                count:"(1year)"
+                from: "June 2019",
+                to: "May 2020",
+                count: "(1year)"
             },
             details: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur? Eum atque consequatur ducimus architecto dicta nisi officiis sunt incidunt delectus odio.Autem itaque repellat fuga suscipit laboriosam eos tempora consequatur distinctio dicta temporibus, dolore inventore consectetur a voluptates, eligendi molestiae nulla? Ad ullam sint ipsum officia aut numquam natus magnam."
         },
@@ -118,9 +118,9 @@ const userDetails = {
                 pageLink: "/VirginAtlantic"
             },
             duration: {
-                from:"June 2019",
-                to:"Present",
-                count:""
+                from: "June 2019",
+                to: "Present",
+                count: ""
             },
             details: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur."
         }
@@ -128,30 +128,42 @@ const userDetails = {
 
     education: [
         {
-            degree: "",
+            degree: "Bsc Computer Science",
             school: {
-                name: "",
-                logo: "",
-                pageLink: ""
+                name: "University of Texas",
+                logo: "/assets/images/pages/virgin.png",
+                resultLink: ""
             },
-            duration: "",
+            duration: {
+                from: "January 2012",
+                to: "May 2015",
+                count: ""
+            },
             details: ""
         },
         {
-            degree: "",
+            degree: "WASSCE",
             school: {
-                name: "",
-                logo: "",
-                pageLink: ""
+                name: "Premier College",
+                logo: "/assets/images/pages/virgin.png",
+                resultLink: ""
             },
-            duration: "",
+            duration: {
+                from: "June 2007",
+                to: "2012",
+                count: ""
+            },
             details: ""
         }
     ],
     skillAndEndorsement: [
         {
-            tittle: "",
-            endorsedBy: ""
+            title: "Public Speaking",
+            endorsedBy: "Richard Branson and 20 others"
+        },
+        {
+            title: "Content Creator",
+            endorsedBy: "John Mark"
         }
     ]
 }
