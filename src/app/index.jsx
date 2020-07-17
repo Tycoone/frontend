@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Authpage from '../pages/authpage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { AuthProvider } from './Auth/AuthContext'
@@ -35,7 +35,7 @@ function App() {
 
     const theme = createMuiTheme({
         palette: {
-            type: darkMode? 'dark':'light',
+            type: darkMode ? 'dark' : 'light',
             // primary: {
             //     main: '#7d89f0'
             // },
@@ -58,9 +58,9 @@ function App() {
             // secondary: {
             //     main: '#7D89F0'
             // },
-            button:{
-                elevation:{
-                    light:`  8px 8px 16px #e5e7f8, 
+            button: {
+                elevation: {
+                    light: `  8px 8px 16px #e5e7f8, 
                     -8px -8px 16px #eff1ff  `
                 }
             }
@@ -72,7 +72,7 @@ function App() {
     return (
         <AuthProvider>
             <ModeProvider>
-                
+
                 <ThemeProvider theme={theme}>
                     <AppRoute mode={[darkMode, setDarkMode]} />
                 </ThemeProvider>
@@ -81,20 +81,95 @@ function App() {
 
     )
 }
-const AppRoute = ({mode}) => {
+const userDetails = {
+    name: {
+        first: "Joseph ",
+        last: "Mark",
+    },
+    currentPosition: "Chief Executive Officer",
+    currentCompany: "Milk Labs",
+    currentLocation: "Lagos, Nigeria",
+    connections: 500,
+    images: {
+        profileImage: "/assets/images/nzaki.jpg",
+        coverImage: "/assets/images/coverImage_default.jpg",
+    },
+    about: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur? Eum atque consequatur ducimus architecto dicta nisi officiis sunt incidunt delectus odio.Autem itaque repellat fuga suscipit laboriosam eos tempora consequatur distinctio dicta temporibus, dolore inventore consectetur a voluptates, eligendi molestiae nulla? Ad ullam sint ipsum officia aut numquam natus magnam.",
+    experience: [
+        {
+            position: "Program Manager for Youth",
+            company: {
+                name: "Virgin Atlantic",
+                logo: "/assets/images/pages/virgin.png",
+                pageLink: "/VirginAtlantic"
+            },
+            duration: {
+                from:"June 2019",
+                to:"May 2020",
+                count:"(1year)"
+            },
+            details: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur? Eum atque consequatur ducimus architecto dicta nisi officiis sunt incidunt delectus odio.Autem itaque repellat fuga suscipit laboriosam eos tempora consequatur distinctio dicta temporibus, dolore inventore consectetur a voluptates, eligendi molestiae nulla? Ad ullam sint ipsum officia aut numquam natus magnam."
+        },
+        {
+            position: "Chief Executive Officer",
+            company: {
+                name: "Milk Labs",
+                logo: "/assets/images/pages/virgin.png",
+                pageLink: "/VirginAtlantic"
+            },
+            duration: {
+                from:"June 2019",
+                to:"Present",
+                count:""
+            },
+            details: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur."
+        }
+    ],
+
+    education: [
+        {
+            degree: "",
+            school: {
+                name: "",
+                logo: "",
+                pageLink: ""
+            },
+            duration: "",
+            details: ""
+        },
+        {
+            degree: "",
+            school: {
+                name: "",
+                logo: "",
+                pageLink: ""
+            },
+            duration: "",
+            details: ""
+        }
+    ],
+    skillAndEndorsement: [
+        {
+            tittle: "",
+            endorsedBy: ""
+        }
+    ]
+}
+
+const AppRoute = ({ mode }) => {
     return (
         <Router>
             <Switch>
-                <Route  path="/home">
-                    <AppHome  mode={mode}  />
+                <Route path="/home">
+                    <AppHome mode={mode} />
                 </Route>
                 <Route path="/profile">
                     <AppHome mode={mode} >
-                        <Profile />
+                        <Profile user={userDetails} />
                     </AppHome>
                 </Route>
                 <Route path="/" exact>
-                    <AppHome  mode={mode}  />
+                    <AppHome mode={mode} />
                 </Route>
                 <Route path="/signin">
                     <Authpage>
@@ -110,7 +185,7 @@ const AppRoute = ({mode}) => {
         </Router>
     )
 };
-const AppHome = ({ children,mode }) => {
+const AppHome = ({ children, mode }) => {
     const classes = useStyles();
     return (
         <Paper className={classes.root} elevation={0}>
