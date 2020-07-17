@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { AppBar, Avatar, Toolbar, Typography, InputBase, IconButton, Menu, MenuItem, Grid, Switch, Link, SvgIcon } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import {grey} from '@material-ui/core/colors';
-import PeopleIcon from '@material-ui/icons/People';
 // import MailIcon from '@material-ui/icons/Mail'
 // import Badge from '@material-ui/core/Badge'
 import MessageIcon from '@material-ui/icons/Message';
