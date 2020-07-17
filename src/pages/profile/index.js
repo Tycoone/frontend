@@ -1,8 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import { Grid, Card, CardMedia, CardContent, Typography, Button, Avatar } from '@material-ui/core'
+import { Grid, Card, CardMedia, CardContent, Typography, Button, Avatar, List, ListItem,ListItemAvatar,ListItemText  } from '@material-ui/core'
 import RoomIcon from '@material-ui/icons/Room';
+import ImageIcon from '@material-ui/icons/Image';
 import { Link as RLink } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.palette.type === 'dark' ? theme.palette.elevationDark : theme.palette.elevationLight
     },
     smallPaper: {
-        padding: theme.spacing(10),
+        // padding: theme.spacing(10),
 
         color: theme.palette.text,
         boxShadow: theme.palette.type === 'dark' ? theme.palette.elevationDark : theme.palette.elevationLight
@@ -94,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     aboutHeader: {
         fontStyle: 'normal',
         fontWeight: 600,
-        fontSize: "20px",
+        fontSize: "22px",
         color: theme.palette.type === 'light' ? '#333333' : '#ffffff',
         lineHeight: '143.3%'
     },
@@ -115,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: "20px",
-        color: theme.palette.type === 'light' ? '#4F4F4F' : '#ffffff',
+        color: theme.palette.type === 'light' ? '#4f4f4f' : '#ffffff',
         lineHeight: '143.3%',
     },
     flex: {
@@ -136,16 +137,30 @@ const useStyles = makeStyles((theme) => ({
         width: theme.spacing(7),
         height: theme.spacing(7),
     },
-    profileLink:{
-        textDecoration:'none',
+    profileLink: {
+        textDecoration: 'none',
         color: theme.palette.primary.main
+    },
+    endorsedby: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: "18px",
+        color: theme.palette.type === 'light' ? '#818181' : '#ffffff',
+        lineHeight: '143.3%',
+    },
+    duration: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: "18px",
+        color: theme.palette.type === 'light' ? '#4f4f4f' : '#ffffff',
+        lineHeight: '143.3%',
     }
 
 
 }))
 const Profile = ({ user }) => {
     const classes = useStyles();
-    const { experience } = user;
+    const { experience, education, skillAndEndorsement } = user;
     return (
         <div className={classes.root}>
             <Grid container spacing={4}>
@@ -247,9 +262,111 @@ const Profile = ({ user }) => {
                             }
                         </CardContent>
                     </Card>
+                    <div className={classes.bigGap} />
+                    <Card className={classes.aboutCard} elevation={0}>
+                        <CardContent className={classes.aboutCardConent}>
+                            <Typography component="h3" className={classes.aboutHeader}>
+                                Education
+                            </Typography>
+
+                            {
+                                education.map(item => (
+                                    <div style={{ marginBottom: 20 }}>
+                                        <div className={classes.hr} />
+                                        <Typography component="p" className={classes.experiencePosition}>
+                                            {item.school.name}
+                                        </Typography>
+                                        <div className={classes.flex}>
+                                            <div>
+                                                <Typography component="p" className={classes.experiencePosition}>
+
+                                                    <RLink className={classes.profileLink} to={"pages" + item.school.resultLink}> {item.degree}</RLink>
+                                                </Typography>
+                                                <Typography component="p" className={classes.duration}>
+                                                    <i> {item.duration.from}-{item.duration.to} </i> {item.duration.count}
+                                                </Typography>
+                                            </div>
+
+                                            <div className={classes.companyLogo}>
+                                                <Avatar className={classes.companyLogoImg} alt={item.school.name + " Logo"} src={item.school.logo} ></Avatar>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <Typography component="p" className={classes.aboutDetails}>
+                                            {item.details}
+                                        </Typography>
+                                    </div>
+                                ))
+                            }
+                        </CardContent>
+                    </Card>
+                    <div className={classes.bigGap} />
+                    <Card className={classes.aboutCard} elevation={0}>
+                        <CardContent className={classes.aboutCardConent}>
+                            <Typography component="h3" className={classes.aboutHeader}>
+                                Skills and Endorsement
+                            </Typography>
+
+                            {
+                                skillAndEndorsement.map(item => (
+                                    <div style={{ marginBottom: 20 }}>
+                                        <div className={classes.hr} />
+                                        <Typography component="p" className={classes.experiencePosition}>
+                                            {item.title}
+                                        </Typography>
+                                        <div className={classes.flex}>
+                                            <div>
+
+                                                <Typography component="p" className={classes.endorsedby}>
+                                                    Endorsed By <span style={{ fontWeight: '600' }}>{item.endorsedBy}</span>
+                                                </Typography>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <Typography component="p" className={classes.aboutDetails}>
+                                            {item.details}
+                                        </Typography>
+                                    </div>
+                                ))
+                            }
+                        </CardContent>
+                    </Card>
                 </Grid>
                 <Grid item xs={12} md={3} lg={3}>
-                    <Paper elevation={0} className={classes.smallPaper}></Paper>
+                    <Paper elevation={0} className={classes.smallPaper}>
+                        <List>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar src={user.images.profileImage}/>
+                                </ListItemAvatar>
+                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar src={user.images.profileImage}/>
+                                </ListItemAvatar>
+                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar src={user.images.profileImage}/>
+                                </ListItemAvatar>
+                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar src={user.images.profileImage}/>
+                                </ListItemAvatar>
+                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar src={user.images.profileImage}/>
+                                </ListItemAvatar>
+                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
+                            </ListItem>
+                        </List>
+                    </Paper>
                 </Grid>
             </Grid>
 
