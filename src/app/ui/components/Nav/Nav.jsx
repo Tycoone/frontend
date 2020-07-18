@@ -42,9 +42,9 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid',
     borderColor: theme.palette.type === 'light' ? fade(theme.palette.primary.main, 0.5) : theme.palette.common.white,
     // backgroundColor: fade(theme.palette.common.white, 0.85),
-    '&:hover': {
-      // backgroundColor: fade(theme.palette.common.white, 0.25),
-
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+      width: 0
     },
 
     marginRight: theme.spacing(1),
