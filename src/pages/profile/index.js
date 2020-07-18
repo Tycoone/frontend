@@ -1,9 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import { Grid, Card, CardMedia, CardContent, Typography, Button, Avatar, List, ListItem,ListItemAvatar,ListItemText  } from '@material-ui/core'
+import { Grid, Card, CardMedia, CardContent, Typography, Button, Avatar, List, ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from '@material-ui/core'
 import RoomIcon from '@material-ui/icons/Room';
-import ImageIcon from '@material-ui/icons/Image';
 import { Link as RLink } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -154,17 +153,22 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "18px",
         color: theme.palette.type === 'light' ? '#4f4f4f' : '#ffffff',
         lineHeight: '143.3%',
+    },
+    connectBtn: {
+        textTransform: 'Capitalize',
+        fontSize: 17,
+        color: theme.palette.primary.main
     }
 
 
 }))
 const Profile = ({ user }) => {
     const classes = useStyles();
-    const { experience, education, skillAndEndorsement } = user;
+    const { experience, education, skillAndEndorsement, connectionRequest } = user;
     return (
         <div className={classes.root}>
             <Grid container spacing={4}>
-                <Grid item xs={12} md={9} lg={9}>
+                <Grid item xs={12} md={8} lg={8}>
                     <Card className={classes.paper} elevation={0}>
                         <CardMedia className={classes.media} image={user.images.coverImage} />
                         <CardContent className={classes.cardConent}>
@@ -190,7 +194,7 @@ const Profile = ({ user }) => {
                                                 disableElevation
                                                 variant="contained"
                                                 color="primary"
-                                                className={[classes.buttonsfill, classes.buttons]}
+                                                className={classes.buttonsfill + " " + classes.buttons}
                                             >
                                                 Connect
                                             </Button>
@@ -233,7 +237,7 @@ const Profile = ({ user }) => {
 
                             {
                                 experience.map(item => (
-                                    <div style={{ marginBottom: 20 }}>
+                                    <div key={item.id} style={{ marginBottom: 20 }}>
                                         <div className={classes.hr} />
                                         <Typography component="p" className={classes.experiencePosition}>
                                             {item.position}
@@ -271,7 +275,7 @@ const Profile = ({ user }) => {
 
                             {
                                 education.map(item => (
-                                    <div style={{ marginBottom: 20 }}>
+                                    <div key={item.id} style={{ marginBottom: 20 }}>
                                         <div className={classes.hr} />
                                         <Typography component="p" className={classes.experiencePosition}>
                                             {item.school.name}
@@ -309,7 +313,7 @@ const Profile = ({ user }) => {
 
                             {
                                 skillAndEndorsement.map(item => (
-                                    <div style={{ marginBottom: 20 }}>
+                                    <div key={item.id} style={{ marginBottom: 20 }}>
                                         <div className={classes.hr} />
                                         <Typography component="p" className={classes.experiencePosition}>
                                             {item.title}
@@ -332,39 +336,22 @@ const Profile = ({ user }) => {
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3} lg={3}>
+                <Grid item xs={12} md={4} lg={4}>
                     <Paper elevation={0} className={classes.smallPaper}>
                         <List>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar src={user.images.profileImage}/>
-                                </ListItemAvatar>
-                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
-                            </ListItem>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar src={user.images.profileImage}/>
-                                </ListItemAvatar>
-                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
-                            </ListItem>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar src={user.images.profileImage}/>
-                                </ListItemAvatar>
-                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
-                            </ListItem>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar src={user.images.profileImage}/>
-                                </ListItemAvatar>
-                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
-                            </ListItem>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar src={user.images.profileImage}/>
-                                </ListItemAvatar>
-                                <ListItemText primary="Jacques Webster" secondary="CTO at GreenCo" />
-                            </ListItem>
+                            {connectionRequest.map(connect => (
+                                <ListItem key={connect.id}>
+                                    <ListItemAvatar>
+                                        <Avatar src={connect.profileImage} />
+                                    </ListItemAvatar>
+                                    <ListItemText primary={connect.name} secondary={connect.details} />
+                                    <ListItemSecondaryAction>
+                                        <Button className={classes.connectBtn}>Connect</Button>
+                                    </ListItemSecondaryAction>
+                                </ListItem>
+                            ))}
+
+
                         </List>
                     </Paper>
                 </Grid>
