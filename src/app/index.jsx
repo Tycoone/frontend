@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signin from '../pages/signin';
 import Signup from '../pages/signup';
 import Profile from '../pages/profile';
+import Notifications from '../pages/notifications'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 
@@ -97,6 +98,7 @@ const userDetails = {
     about: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur? Eum atque consequatur ducimus architecto dicta nisi officiis sunt incidunt delectus odio.Autem itaque repellat fuga suscipit laboriosam eos tempora consequatur distinctio dicta temporibus, dolore inventore consectetur a voluptates, eligendi molestiae nulla? Ad ullam sint ipsum officia aut numquam natus magnam.",
     experience: [
         {
+            id:178,
             position: "Program Manager for Youth",
             company: {
                 name: "Virgin Atlantic",
@@ -111,8 +113,10 @@ const userDetails = {
             details: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur? Eum atque consequatur ducimus architecto dicta nisi officiis sunt incidunt delectus odio.Autem itaque repellat fuga suscipit laboriosam eos tempora consequatur distinctio dicta temporibus, dolore inventore consectetur a voluptates, eligendi molestiae nulla? Ad ullam sint ipsum officia aut numquam natus magnam."
         },
         {
+            id:247,
             position: "Chief Executive Officer",
             company: {
+               
                 name: "Milk Labs",
                 logo: "/assets/images/pages/virgin.png",
                 pageLink: "/VirginAtlantic"
@@ -128,6 +132,7 @@ const userDetails = {
 
     education: [
         {
+            id:112,
             degree: "Bsc Computer Science",
             school: {
                 name: "University of Texas",
@@ -142,6 +147,7 @@ const userDetails = {
             details: ""
         },
         {
+            id:221,
             degree: "WASSCE",
             school: {
                 name: "Premier College",
@@ -158,15 +164,100 @@ const userDetails = {
     ],
     skillAndEndorsement: [
         {
+            id:232,
             title: "Public Speaking",
             endorsedBy: "Richard Branson and 20 others"
         },
         {
+            id:2332,
             title: "Content Creator",
             endorsedBy: "John Mark"
         }
+    ],
+    connectionRequest:[
+        {
+            id:1221,
+            name:"Nzaki Michael",
+            details:"CTO at Tech Skills Hack",
+            profileImage:"/assets/images/nzaki.jpg"
+        },
+        {
+            id:1232,
+            name:"Iniobong Udoh",
+            details:"CEO at Tech Skills Hack",
+            profileImage:"/assets/images/ini.jpg"
+        },
+        {
+            id:3222,
+            name:"Esther James",
+            details:"UI/UX deigner at She Codes",
+            profileImage:"/assets/images/esther.jpg"
+        },
+        {
+            id:4222,
+            name:"Faith Itodo",
+            details:"Fashion Designer",
+            profileImage:"/assets/images/faith.jpg"
+        },
+        {
+            id:5222,
+            name:"Ogo Chukwu",
+            details:"Video Maker/Editor",
+            profileImage:"/assets/images/ogo__3.jpg"
+        },
     ]
-}
+};
+const notifications  = [
+    {
+        id:5222,
+        details:"Ogo Chukwu just invited you to connect",
+        image:"/assets/images/ogo__3.jpg",
+        time:"Just Now",
+        type:"connect"
+    },
+    {
+        id:30981,
+        details:"Esther James and 20 others viewed your profile",
+        image:"/assets/images/esther.jpg",
+        time:"43 minutes ago",
+        type:"view"
+    },
+    {
+        id:52432,
+        details:"Iniobong Udoh shared a post you may be interested in.",
+        image:"/assets/images/ini.jpg",
+        time:"1 hour ago",
+        type:"post"
+    },
+    {
+        id:309881,
+        details:"Faith Itodo invited you to connect",
+        image:"/assets/images/faith.jpg",
+        time:"1 hour ago",
+        type:"connect"
+    },
+    {
+        id:50902,
+        details:"Ogo Chukwu just invited you to connect",
+        image:"/assets/images/ogo__3.jpg",
+        time:"Just Now",
+        type:"connect"
+    },
+    {
+        id:3001,
+        details:"Esther James and 20 others viewed your profile",
+        image:"/assets/images/esther.jpg",
+        time:"43 minutes ago",
+        type:"view"
+    },
+    {
+        id:50002,
+        details:"Iniobong Udoh shared a post you may be interested in.",
+        image:"/assets/images/ini.jpg",
+        time:"1 hour ago",
+        type:"post"
+    },
+];
 
 const AppRoute = ({ mode }) => {
     return (
@@ -180,6 +271,11 @@ const AppRoute = ({ mode }) => {
                         <Profile user={userDetails} />
                     </AppHome>
                 </Route>
+                <Route path="/notifications">
+                    <AppHome mode={mode} >
+                        <Notifications notifications={notifications} />
+                    </AppHome>
+                </Route>
                 <Route path="/" exact>
                     <AppHome mode={mode} />
                 </Route>
@@ -190,7 +286,7 @@ const AppRoute = ({ mode }) => {
                 </Route>
                 <Route path="/signup">
                     <Authpage>
-                        <Signup />
+                        <Signup /> 
                     </Authpage>
                 </Route>
             </Switch>
