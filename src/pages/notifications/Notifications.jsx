@@ -58,13 +58,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.type === 'light' ? '#4f4f4f' : '#ffffff',
     lineHeight: '143.3%',
   },
-  endorsedby: {
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: "18px",
-    color: theme.palette.type === 'light' ? '#818181' : '#ffffff',
-    lineHeight: '143.3%',
-  },
   notificationAvatar: {
     width: theme.spacing(7),
     height: theme.spacing(7),
