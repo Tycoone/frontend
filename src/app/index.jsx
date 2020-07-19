@@ -11,6 +11,7 @@ import Profile from '../pages/profile';
 import Notifications from '../pages/notifications'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
+import Connect from '../pages/Connect/Connect';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -266,6 +267,9 @@ const AppRoute = ({ mode }) => {
                 <Route path="/home">
                     <AppHome mode={mode} />
                 </Route>
+                <Route path="/" exact>
+                    <AppHome mode={mode} />
+                </Route>
                 <Route path="/profile">
                     <AppHome mode={mode} >
                         <Profile user={userDetails} />
@@ -276,8 +280,10 @@ const AppRoute = ({ mode }) => {
                         <Notifications notifications={notifications} />
                     </AppHome>
                 </Route>
-                <Route path="/" exact>
-                    <AppHome mode={mode} />
+                <Route path="/connections">
+                    <AppHome mode={mode} >
+                        <Connect />
+                    </AppHome>
                 </Route>
                 <Route path="/signin">
                     <Authpage>
