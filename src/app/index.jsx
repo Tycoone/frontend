@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         transition: 'all 0.1s'
     },
     appRoot: {
-        padding: theme.spacing(14, 14.9),
+        padding: theme.spacing(14, 14.7),
         [theme.breakpoints.down('sm')]: {
             padding: theme.spacing(1),
         },
@@ -62,8 +62,8 @@ function App() {
             // },
             button: {
                 elevation: {
-                    light: `  8px 8px 16px #e5e7f8, 
-                    -8px -8px 16px #eff1ff  `
+                    light: `5px 5px 15px #e7e8f3, 
+                    -5px -5px 15px #ebecf7`
                 }
             }
         },
@@ -282,7 +282,7 @@ const AppRoute = ({ mode }) => {
                 </Route>
                 <Route path="/connections">
                     <AppHome mode={mode} >
-                        <Connect />
+                        <Connect connectionRequest={userDetails.connectionRequest} />
                     </AppHome>
                 </Route>
                 <Route path="/signin">
