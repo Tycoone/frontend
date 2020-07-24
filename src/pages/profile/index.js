@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
-import { Grid, Card, CardMedia, CardContent, Typography, Button, Avatar, List, ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction } from '@material-ui/core'
+import { Grid, Card, CardMedia, CardContent, Typography, Button, Avatar } from '@material-ui/core'
 import RoomIcon from '@material-ui/icons/Room';
 import { Link as RLink } from 'react-router-dom';
+import ConnectSuggestCard from '../../app/ui/components/Cards/ConnectSuggestCard';
 const useStyles = makeStyles((theme) => ({
     root: {
         // flexGrow:1,
@@ -14,12 +14,6 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         border: theme.palette.type === 'light' ? '1.7px solid #ededed' : '1px solid #a5acac',
         borderRadius: theme.spacing(0.2),
-        color: theme.palette.text,
-        boxShadow: theme.palette.type === 'dark' ? theme.palette.elevationDark : theme.palette.elevationLight
-    },
-    smallPaper: {
-        // padding: theme.spacing(10),
-
         color: theme.palette.text,
         boxShadow: theme.palette.type === 'dark' ? theme.palette.elevationDark : theme.palette.elevationLight
     },
@@ -154,12 +148,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.type === 'light' ? '#4f4f4f' : '#ffffff',
         lineHeight: '143.3%',
     },
-    connectBtn: {
-        textTransform: 'Capitalize',
-        fontSize: 17,
-        color: theme.palette.primary.main
-    }
-
 
 }))
 const Profile = ({ user }) => {
@@ -337,23 +325,7 @@ const Profile = ({ user }) => {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={4} lg={4}>
-                    <Paper elevation={0} className={classes.smallPaper}>
-                        <List>
-                            {connectionRequest.map(connect => (
-                                <ListItem key={connect.id}>
-                                    <ListItemAvatar>
-                                        <Avatar src={connect.profileImage} />
-                                    </ListItemAvatar>
-                                    <ListItemText primary={connect.name} secondary={connect.details} />
-                                    <ListItemSecondaryAction>
-                                        <Button className={classes.connectBtn}>Connect</Button>
-                                    </ListItemSecondaryAction>
-                                </ListItem>
-                            ))}
-
-
-                        </List>
-                    </Paper>
+                    <ConnectSuggestCard connectionSuggestion={connectionRequest} />
                 </Grid>
             </Grid>
 
