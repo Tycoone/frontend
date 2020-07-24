@@ -1,58 +1,71 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './Feed.styles';
+import React from 'react';
+import { makeStyles, Paper, Grid, Typography } from '@material-ui/core'
+import PropTypes from 'prop-types'
+import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
+import { Link as RLink } from 'react-router-dom';
+const useStyles = makeStyles(theme => ({
+	root: {
 
-class Feed extends PureComponent { 
-  constructor(props) {
-    super(props);
+	},
+	bigGap: {
+		padding: theme.spacing(2)
+	},
+	connectionSuggestTitle: {
+		color: theme.palette.primary.main,
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-between",
+		padding: theme.spacing(2, 0.4)
+	},
+	titleHeader: {
+		fontStyle: 'normal',
+		fontWeight: 600,
+		fontSize: "22px",
+		lineHeight: '1'
+	},
+	titleLinks: {
+		color: theme.palette.primary.main,
+		textDecoration: 'none',
+		fontWeight: 500,
+		fontSize: "21px"
+	}
+}));
+function Feed({ connectionRequest }) {
+	const classes = useStyles();
+	// const connectReq = connectionRequest.filter((item,index) => index !== (connectionRequest.length - 1));
+	const connectReq = connectionRequest.slice(0, 4);
+	return (
+		<div className={classes.root}>
+			<div className={classes.bigGap} />
+			<div>
+				<div className={classes.connectionSuggestTitle}>
+					<Typography className={classes.titleHeader}>Recent Invitation</Typography>
 
-    this.state = {
-      hasError: false,
-    };
-  }
-
-  componentWillMount = () => {
-    console.log('Feed will mount');
-  }
-
-  componentDidMount = () => {
-    console.log('Feed mounted');
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    console.log('Feed will receive props', nextProps);
-  }
-
-  componentWillUpdate = (nextProps, nextState) => {
-    console.log('Feed will update', nextProps, nextState);
-  }
-
-  componentDidUpdate = () => {
-    console.log('Feed did update');
-  }
-
-  componentWillUnmount = () => {
-    console.log('Feed will unmount');
-  }
-
-  render () {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return (
-      <div className="FeedWrapper">
-        Test content
-      </div>
-    );
-  }
+					<Typography>
+						<RLink to="/connections#" className={classes.titleLinks}>
+							See all
+						</RLink>
+					</Typography>
+				</div>
+				<Grid container className={classes.paper2} spacing={4}>
+					{
+						connectReq.map(user => (
+							<ConnectCard key={user.id} user={user} />
+						))
+					}
+				</Grid>
+			</div>
+		</div>
+	)
 }
 
+
 Feed.propTypes = {
-  // bla: PropTypes.string,
+	connectionRequest: PropTypes.array.isRequired,
 };
 
 Feed.defaultProps = {
-  // bla: 'test',
+	// bla: 'test',
 };
 
 export default Feed;
