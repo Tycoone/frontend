@@ -11,12 +11,14 @@ import Profile from '../pages/profile';
 import Notifications from '../pages/notifications'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import Connect from '../pages/Connect/Connect';
+import Connect from '../pages/connect';
+import Feed from '../pages/Feed/Feed';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: theme.palette.type === 'light' ? '#fcfcfc' : theme.palette.background,
+        // Work on Dark Mode Here
+        backgroundColor: theme.palette.type === 'light' ? '#fcfcfc' : 'theme.palette.background',
         minHeight: '100vh',
         transition: 'all 0.1s'
     },
@@ -62,8 +64,22 @@ function App() {
             // },
             button: {
                 elevation: {
-                    light: `5px 5px 15px #e7e8f3, 
-                    -5px -5px 15px #ebecf7`
+                    light: `7px 7px 17px rgba(229, 232, 255,0.5), 
+                    -7px -7px 17px rgba(229, 232, 255,0.5)`
+                },
+                hoverElevation: {
+                    light: `9px 9px 19px rgba(229, 232, 255,0.8), 
+                    -9px -9px 19px rgba(229, 232, 255,0.8)`
+                }
+            },
+            card: {
+                elevation: {
+                    light: `  3px 3px 9px rgba(229, 232, 255,0.274), 
+        -3px -3px 9px rgba(229, 232, 255,0.274)`
+                },
+                hoverElevation: {
+                    light: `9px 9px 20px rgba(229, 232, 255,0.7), 
+                    -9px -9px 20px rgba(229, 232, 255,0.7)`
                 }
             }
         },
@@ -206,6 +222,36 @@ const userDetails = {
             details:"Video Maker/Editor",
             profileImage:"/assets/images/ogo__3.jpg"
         },
+        {
+            id:12212,
+            name:"Shalom Chris",
+            details:"Actres at Star Productions",
+            profileImage:"/assets/images/Shalom.jpg"
+        },
+        {
+            id:12321,
+            name:"Faith Arome",
+            details:"Student at Federal University",
+            profileImage:"/assets/images/Faith_Phoebe.jpg"
+        },
+        {
+            id:32222,
+            name:"Phoebe Richards",
+            details:"Student at Federal University",
+            profileImage:"/assets/images/PhoebeRichards.png"
+        },
+        {
+            id:42221,
+            name:"Monica Bassey",
+            details:"Singer at MoniMusic",
+            profileImage:"/assets/images/monica.jpg"
+        },
+        {
+            id:52222,
+            name:"Idonesit Ibanga",
+            details:"Student at UniUyo",
+            profileImage:"/assets/images/Idonesit.Ibanga-favour Ibanga.jpg"
+        },
     ]
 };
 const notifications  = [
@@ -268,7 +314,9 @@ const AppRoute = ({ mode }) => {
                     <AppHome mode={mode} />
                 </Route>
                 <Route path="/" exact>
-                    <AppHome mode={mode} />
+                    <AppHome mode={mode}>
+                        <Feed connectionRequest={userDetails.connectionRequest}/>
+                    </AppHome>
                 </Route>
                 <Route path="/profile">
                     <AppHome mode={mode} >
