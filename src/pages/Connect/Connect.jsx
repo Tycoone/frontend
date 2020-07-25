@@ -56,7 +56,7 @@ const Connect = ({ connectionRequest }) => {
   const classes = useStyles();
 
   return (
-    <>
+    < >
       <Paper className={classes.paper}>
         <div className={classes.bigGap} />
         <Card className={classes.aboutCard} elevation={0}>
