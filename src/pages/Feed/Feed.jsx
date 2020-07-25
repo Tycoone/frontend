@@ -1,8 +1,9 @@
 import React from 'react';
-import { makeStyles, Paper, Grid, Typography } from '@material-ui/core'
+import { makeStyles,  Grid, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
 import { Link as RLink } from 'react-router-dom';
+import ConnectSuggestCard from '../../app/ui/components/Cards/ConnectSuggestCard';
 const useStyles = makeStyles(theme => ({
 	root: {
 
@@ -42,7 +43,7 @@ function Feed({ connectionRequest }) {
 					<Typography className={classes.titleHeader}>Recent Invitation</Typography>
 
 					<Typography>
-						<RLink to="/connections#" className={classes.titleLinks}>
+						<RLink to="/connections#home" className={classes.titleLinks}>
 							See all
 						</RLink>
 					</Typography>
@@ -55,6 +56,14 @@ function Feed({ connectionRequest }) {
 					}
 				</Grid>
 			</div>
+			<div className={classes.bigGap} />
+			<div className={classes.bigGap} />
+			<Grid container>
+				<Grid item md={8}></Grid>
+				<Grid item md={4}>
+					<ConnectSuggestCard connectionSuggestion={connectionRequest}/>
+				</Grid>
+			</Grid>
 		</div>
 	)
 }
