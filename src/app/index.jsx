@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         // Work on Dark Mode Here
         backgroundColor: theme.palette.type === 'light' ? '#fcfcfc' : 'theme.palette.background',
         minHeight: '100vh',
-        transition: 'all 0.1s'
+        transition: 'all 0.1s',
     },
     appRoot: {
         padding: theme.spacing(14, 14.7),
@@ -314,23 +314,28 @@ const AppRoute = ({ mode }) => {
                     <AppHome mode={mode} />
                 </Route>
                 <Route path="/" exact>
-                    <AppHome mode={mode}>
+                    <AppHome activeMode="home" mode={mode}>
                         <Feed connectionRequest={userDetails.connectionRequest}/>
                     </AppHome>
                 </Route>
-                <Route path="/profile">
-                    <AppHome mode={mode} >
-                        <Profile user={userDetails} />
+                <Route path="/connections">
+                    <AppHome mode={mode} activeMode="connections" >
+                        <Connect connectionRequest={userDetails.connectionRequest} />
+                    </AppHome>
+                </Route>
+                <Route path="/messages">
+                    <AppHome mode={mode} activeMode="messages">
+                       
                     </AppHome>
                 </Route>
                 <Route path="/notifications">
-                    <AppHome mode={mode} >
+                    <AppHome mode={mode} activeMode="notifications">
                         <Notifications notifications={notifications} />
                     </AppHome>
                 </Route>
-                <Route path="/connections">
-                    <AppHome mode={mode} >
-                        <Connect connectionRequest={userDetails.connectionRequest} />
+                <Route path="/profile">
+                    <AppHome  mode={mode} >
+                        <Profile user={userDetails} />
                     </AppHome>
                 </Route>
                 <Route path="/signin">
@@ -347,11 +352,11 @@ const AppRoute = ({ mode }) => {
         </Router>
     )
 };
-const AppHome = ({ children, mode }) => {
+const AppHome = ({ children, mode,activeMode }) => {
     const classes = useStyles();
     return (
         <Paper className={classes.root} elevation={0}>
-            <div> <Nav mode={mode} />
+            <div> <Nav activeMode={activeMode} mode={mode} />
                 <div className={classes.appRoot}>
                     {children}
                 </div>
