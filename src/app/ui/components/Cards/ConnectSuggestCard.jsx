@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import {
     Paper,
     Button,
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ConnectSuggestCard = ({ connectionSuggestion }) => {
     const classes = useStyles();
-    connectionSuggestion = connectionSuggestion.slice(0, 5)
+    connectionSuggestion = connectionSuggestion.slice(4,9)
     return (
         <>
             <Paper elevation={0} className={classes.smallPaper}>
@@ -53,5 +54,7 @@ const ConnectSuggestCard = ({ connectionSuggestion }) => {
         </>
     )
 }
-
+ConnectSuggestCard.propTypes ={
+    connectionSuggestion: PropTypes.object.isRequired,
+}
 export default ConnectSuggestCard
