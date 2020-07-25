@@ -9,3 +9,7 @@ label {
 /* button:hover{
     background-color:#5aa2fae3!important;
 } */
+::selection{
+ background-color:#7d89f0;
+ color: #ffffff;
+}
