@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardContent, Typography, Button, Avatar, makeStyles, Grid } from '@material-ui/core';
-import  PropTypes  from 'prop-types';
+import { Card, CardContent, Typography, Button, Avatar, makeStyles, Grid, Paper } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,13 +37,13 @@ const useStyles = makeStyles((theme) => ({
         margin: 'auto'
     },
     card: {
-        border: theme.palette.type === 'light' ? '0.09em solid #e3e6fc' : '1px solid white',
+        // border: theme.palette.type === 'light' ? '0.09em solid #e3e6fc' : '1px solid white',
         borderRadius: theme.spacing(0.2),
-        backgroundColor: theme.palette.type === 'light' ? 'white' :theme.palette.background,
-        height:290,
-        boxShadow:  theme.palette.type === 'light'?theme.palette.card.elevation.light:'',
-        '&:hover':{
-            boxShadow:  theme.palette.type === 'light'?theme.palette.card.hoverElevation.light:'',
+        backgroundColor: theme.palette.type === 'light' ? 'white' : theme.palette.background,
+        height: 290,
+        boxShadow: theme.palette.type === 'light' ? theme.palette.card.elevation.light : '',
+        '&:hover': {
+            boxShadow: theme.palette.type === 'light' ? theme.palette.card.hoverElevation.light : '',
         }
     },
     cardContent: {
@@ -87,42 +87,44 @@ const useStyles = makeStyles((theme) => ({
 const ConnectCard = ({ user }) => {
     const classes = useStyles();
     return (
-        <Grid item md={3} >
-            <Card className={classes.card} elevation={0}>
-                <CardContent className={classes.cardContent}>
-                    <div className={classes.centerText}>
-                        <Avatar className={classes.connectAvatar} src={user.profileImage} />
-                        <Typography className={classes.name}>
-                            {user.name}
-                        </Typography>
-                        <Typography className={classes.companyAndPosition}>
-                            {user.details} <br /> 300 Connections
+        <Paper>
+            <Grid item md={3} >
+                <Card className={classes.card} elevation={0}>
+                    <CardContent className={classes.cardContent}>
+                        <div className={classes.centerText}>
+                            <Avatar className={classes.connectAvatar} src={user.profileImage} />
+                            <Typography className={classes.name}>
+                                {user.name}
+                            </Typography>
+                            <Typography className={classes.companyAndPosition}>
+                                {user.details} <br /> 300 Connections
                 </Typography>
-                        <Typography >
-                            <Button
-                                disableElevation
-                                variant="contained"
-                                color="primary"
-                                className={classes.buttonsfill + " " + classes.buttons}
-                            >Connect</Button>
-                        </Typography>
-                    </div>
-                </CardContent>
-            </Card>
-        </Grid>
+                            <Typography >
+                                <Button
+                                    disableElevation
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.buttonsfill + " " + classes.buttons}
+                                >Connect</Button>
+                            </Typography>
+                        </div>
+                    </CardContent>
+                </Card>
+            </Grid>
+        </Paper>
     )
 }
 
 ConnectCard.propTypes = {
     connectionRequest: PropTypes.object.isRequired
-  };
-  
-  ConnectCard.defaultProps = {
+};
+
+ConnectCard.defaultProps = {
     connectionRequest: {
-      id:1,
-      name:"User Name",
-      details:"position",
-      profileImage:"/assets/images/nzaki.jpg"
-  }
-  };
+        id: 1,
+        name: "User Name",
+        details: "position",
+        profileImage: "/assets/images/nzaki.jpg"
+    }
+};
 export default ConnectCard
