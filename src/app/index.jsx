@@ -11,7 +11,7 @@ import Profile from '../pages/profile';
 import Notifications from '../pages/notifications'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import Connect from '../pages/connect/Connect';
+import Connect from '../pages/connect';
 import Feed from '../pages/Feed/Feed';
 
 
