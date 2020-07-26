@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, Button, Avatar, makeStyles, Grid, Paper } from '@material-ui/core';
+import { Card, CardContent, Typography, Button, Avatar, makeStyles, Grid} from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
@@ -87,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
 const ConnectCard = ({ user }) => {
     const classes = useStyles();
     return (
-        <Paper>
             <Grid item md={3} >
                 <Card className={classes.card} elevation={0}>
                     <CardContent className={classes.cardContent}>
@@ -111,7 +110,6 @@ const ConnectCard = ({ user }) => {
                     </CardContent>
                 </Card>
             </Grid>
-        </Paper>
     )
 }
 
