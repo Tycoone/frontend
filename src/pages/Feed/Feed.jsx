@@ -22,13 +22,17 @@ const useStyles = makeStyles(theme => ({
 		fontStyle: 'normal',
 		fontWeight: 600,
 		fontSize: "22px",
-		lineHeight: '1'
+		lineHeight: '1',
 	},
 	titleLinks: {
 		color: theme.palette.primary.main,
 		textDecoration: 'none',
 		fontWeight: 500,
 		fontSize: "21px"
+	},
+	suguestTitl:{
+		margin:theme.spacing(2,0)
+
 	}
 }));
 function Feed({ connectionRequest }) {
@@ -59,8 +63,13 @@ function Feed({ connectionRequest }) {
 			<div className={classes.bigGap} />
 			<div className={classes.bigGap} />
 			<Grid container>
-				<Grid item md={8}></Grid>
+				<Grid item md={8}>
+					
+				</Grid>
 				<Grid item md={4}>
+				<div className={classes.suguestTitl}>
+					<Typography className={classes.titleHeader}>Suggestions for you</Typography>
+				</div>
 					<ConnectSuggestCard connectionSuggestion={connectionRequest}/>
 				</Grid>
 			</Grid>
