@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, Paper, Grid } from '@material-ui/core'
 import { Card, CardContent, Typography } from '@material-ui/core'
 import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
-import  PropTypes  from 'prop-types'
+// import  PropTypes  from 'prop-types'
 const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow:1,
@@ -56,7 +56,7 @@ const Connect = ({ connectionRequest }) => {
   const classes = useStyles();
 
   return (
-    < >
+    <div>
       <Paper className={classes.paper}>
         <div className={classes.bigGap} />
         <Card className={classes.aboutCard} elevation={0}>
@@ -106,21 +106,21 @@ const Connect = ({ connectionRequest }) => {
 
         </Grid>
       </Paper>
-    </>
+    </div>
   )
 }
 
-Connect.propTypes = {
-  connectionRequest: PropTypes.array.isRequired,
-};
+// Connect.propTypes = {
+//   connectionRequest: PropTypes.array.isRequired,
+// };
 
-Connect.defaultProps = {
-  connectionRequest: [{
-    id:1,
-    name:"User Name",
-    details:"position",
-    profileImage:"/assets/images/nzaki.jpg"
-}]
-};
+// Connect.defaultProps = {
+//   connectionRequest: [{
+//     id:1,
+//     name:"User Name",
+//     details:"position",
+//     profileImage:"/assets/images/nzaki.jpg"
+// }]
+// };
 
 export default Connect;
