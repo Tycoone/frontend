@@ -1,9 +1,10 @@
 import React from 'react';
-import { makeStyles,  Grid, Typography } from '@material-ui/core'
+import { makeStyles, Grid, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
 import { Link as RLink } from 'react-router-dom';
 import ConnectSuggestCard from '../../app/ui/components/Cards/ConnectSuggestCard';
+import PostCard from '../../app/ui/components/Cards/PostCard';
 const useStyles = makeStyles(theme => ({
 	root: {
 
@@ -30,9 +31,12 @@ const useStyles = makeStyles(theme => ({
 		fontWeight: 500,
 		fontSize: "21px"
 	},
-	suguestTitl:{
-		margin:theme.spacing(2,0)
+	suguestTitl: {
+		margin: theme.spacing(2, 0)
 
+	},
+	paddingLarge:{
+		padding: theme.spacing(0,0,0,4)
 	}
 }));
 function Feed({ connectionRequest }) {
@@ -63,14 +67,43 @@ function Feed({ connectionRequest }) {
 			<div className={classes.bigGap} />
 			<div className={classes.bigGap} />
 			<Grid container>
-				<Grid item md={8}>
-					
+				<Grid item md={8} xs={12}>
+					<PostCard
+						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
+						time="10 mins ago"
+						media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
+						likes={10}
+						commentsCount={4}
+						sharesCount={1}
+					/>
+			<div className={classes.bigGap} />
+
+					<PostCard
+						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
+						time="10 mins ago"
+						media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
+						likes={10}
+						commentsCount={4}
+						sharesCount={1}
+					/>
+			<div className={classes.bigGap} />
+
+					<PostCard
+						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
+						time="10 mins ago"
+						media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
+						likes={10}
+						commentsCount={4}
+						sharesCount={1}
+					/>
 				</Grid>
-				<Grid item md={4}>
-				<div className={classes.suguestTitl}>
-					<Typography className={classes.titleHeader}>Suggestions for you</Typography>
-				</div>
-					<ConnectSuggestCard connectionSuggestion={connectionRequest}/>
+				<Grid item md={4} xs={12} >
+					<div className={classes.paddingLarge}>
+						<div className={classes.suguestTitl}>
+							<Typography className={classes.titleHeader}>Suggestions for you</Typography>
+						</div>
+						<ConnectSuggestCard connectionSuggestion={connectionRequest} />
+					</div>
 				</Grid>
 			</Grid>
 		</div>
