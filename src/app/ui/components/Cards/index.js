@@ -1,5 +1,5 @@
-import Cards from './Cards';
-import ConnectCards from './Cards';
+import ConnectCard from './ConnectCard';
+import PostCard from './PostCard';
 
 
-export { Cards, ConnectCards };
+export { PostCard, ConnectCard };
