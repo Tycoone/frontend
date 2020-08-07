@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
 const ConnectCard = ({ user }) => {
     const classes = useStyles();
     return (
-            <Grid item md={3} xs={12}>
+            <Grid item sm={4} md={3} xs={12}>
                 <Card className={classes.card} elevation={0}>
                     <CardContent className={classes.cardContent}>
                         <div className={classes.centerText}>
