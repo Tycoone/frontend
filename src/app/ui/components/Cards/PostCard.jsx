@@ -45,7 +45,7 @@ const PostCard = ({ user, time, postText, media, likes, commentsCount, sharesCou
                     </Typography>
                 </CardContent>
                 {
-                    media.isImage ? (
+                    media? (
                         <CardMedia
                             className={classes.media}
                             image={media.src}
