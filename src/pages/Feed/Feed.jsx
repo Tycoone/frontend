@@ -85,16 +85,18 @@ function Feed({ connectionRequest }) {
 						likes={10}
 						commentsCount={4}
 						sharesCount={1}
+						postText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe illum, aspernatur magnam ducimus ea nulla? Reiciendis optio sapiente velit veritatis voluptatibus, dolore distinctio praesentium accusamus ullam, placeat aliquid, aliquam nisi."
 					/>
 			<div className={classes.bigGap} />
 
 					<PostCard
 						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
 						time="10 mins ago"
-						media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
+						// media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
 						likes={10}
 						commentsCount={4}
 						sharesCount={1}
+						postText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe illum, aspernatur magnam ducimus ea nulla? Reiciendis optio sapiente velit veritatis voluptatibus, dolore distinctio praesentium accusamus ullam, placeat aliquid, aliquam nisi."
 					/>
 				</Grid>
 				<Grid item md={4} xs={12} >
