@@ -134,7 +134,7 @@ const userDetails = {
             position: "Chief Executive Officer",
             company: {
                
-                name: "Milk Labs",
+                name: "Milk Labs", 
                 logo: "/assets/images/pages/virgin.png",
                 pageLink: "/VirginAtlantic"
             },
