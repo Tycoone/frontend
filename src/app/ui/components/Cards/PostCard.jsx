@@ -32,8 +32,8 @@ const PostCard = ({ user, time, postText, media, likes, commentsCount, sharesCou
             <Card className={classes.card}>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="recipe" src={user.avatar} className={classes.avatar}>
-                            {user}
+                        <Avatar aria-label="user" src={user.avatar} className={classes.avatar}>
+                            
                         </Avatar>
                     }
                     title={user.name}
@@ -54,6 +54,7 @@ const PostCard = ({ user, time, postText, media, likes, commentsCount, sharesCou
                     ) : ''
                 }
                 <div className={classes.bigGap} />
+                <hr/>
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to favorites">
                         <FavoriteIcon /> 

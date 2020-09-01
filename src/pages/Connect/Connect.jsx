@@ -52,9 +52,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2)
   },
 }));
-const Connect = ({ connectionRequest }) => {
+const Connect = ({match,connectionRequest}) => {
+  // const { connectionRequest } = props;
   const classes = useStyles();
-
+console.log(match);
   return (
     <div>
       <Paper className={classes.paper}>

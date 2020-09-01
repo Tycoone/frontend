@@ -55,6 +55,6 @@ const ConnectSuggestCard = ({ connectionSuggestion }) => {
     )
 }
 ConnectSuggestCard.propTypes ={
-    connectionSuggestion: PropTypes.object.isRequired,
+    connectionSuggestion: PropTypes.array.isRequired,
 }
 export default ConnectSuggestCard

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Authpage from '../pages/authpage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { AuthProvider } from './Auth/AuthContext'
-import { ModeProvider } from './Auth/ModeContext'
+import { AuthProvider } from './auth/AuthContext'
+import { ModeProvider } from './auth/ModeContext'
 import Nav from './ui/components/Nav/Nav';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signin from '../pages/signin';
@@ -352,7 +352,8 @@ const AppRoute = ({ mode }) => {
         </Router>
     )
 };
-const AppHome = ({ children, mode,activeMode }) => {
+const AppHome = (props) => {
+    const { children, mode,activeMode } = props;
     const classes = useStyles();
     return (
         <Paper className={classes.root} elevation={0}>

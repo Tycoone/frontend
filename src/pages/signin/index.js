@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -6,7 +6,6 @@ import './styles.css';
 import { Container, makeStyles, fade, Button, Checkbox, FormControlLabel, Typography } from '@material-ui/core';
 import { Link } from '@material-ui/core';
 import { Link as RLink } from 'react-router-dom';
-import { AuthContext } from '../../app/Auth/AuthContext';
 
 
 const useStyles = makeStyles((theme) => {
@@ -57,10 +56,10 @@ const useStyles = makeStyles((theme) => {
         }
     }
 });
-const Signin = () => {
+const Signin = (props) => {
     const styles = useStyles();
-    const [login, setLogin] = useContext(AuthContext);
-    const [email, setEmail] = useState(login.email);
+    // const [login, setLogin] = useContext();
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const updateEmail = (e) => {
@@ -71,7 +70,8 @@ const Signin = () => {
     };
     const updateLogin = (e) => {
         e.preventDefault();
-        setLogin(() => ({ email, password, isAuthenticated: true }));
+        // setLogin(() => ({ email, password, isAuthenticated: true }));
+        
     }
     return (
 
@@ -88,7 +88,8 @@ const Signin = () => {
                                 Please sign in to continue
                             </Typography>
                             <div className={styles.formContainer} >
-                                <form className={styles.form} noValidate method="post" onSubmit={updateLogin}>
+                                <form className={styles.form} noValidate method="post" 
+                                onSubmit={updateLogin}>
                                     <TextField
                                         className={styles.input}
                                         variant="outlined"
