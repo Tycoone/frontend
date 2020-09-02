@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.palette.type === 'light' ? theme.palette.common.white : grey.A700,
     color: theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.common.white,
-    padding: theme.spacing(1.99, 13.45),
+    padding: theme.spacing(1.99, 12.0),
     // padding: theme.spacing(14, 14.9),
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
