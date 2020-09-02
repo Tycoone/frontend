@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles, Paper, Grid } from '@material-ui/core'
 import { Card, CardContent, Typography } from '@material-ui/core'
-import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
+import ConnectCard from '../../../components/Cards/ConnectCard';
 // import  PropTypes  from 'prop-types'
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,9 +52,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2)
   },
 }));
-const Connect = ({ connectionRequest }) => {
+const Connect = ({match,connectionRequest}) => {
+  // const { connectionRequest } = props;
   const classes = useStyles();
-
+console.log(match);
   return (
     <div>
       <Paper className={classes.paper}>

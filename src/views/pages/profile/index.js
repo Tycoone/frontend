@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Card, CardMedia, CardContent, Typography, Button, Avatar } from '@material-ui/core'
 import RoomIcon from '@material-ui/icons/Room';
 import { Link as RLink } from 'react-router-dom';
-import ConnectSuggestCard from '../../app/ui/components/Cards/ConnectSuggestCard';
+import ConnectSuggestCard from '../../../components/Cards/ConnectSuggestCard';
 const useStyles = makeStyles((theme) => ({
     root: {
         // flexGrow:1,

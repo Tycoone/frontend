@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //import { Test } from './Error.styles';
 
-const Error404 = (props) => (
-  <div className="ErrorWrapper">
-    Page Not Found
-  </div>
-);
+const Error404 = (props) => {
+  
+  return (
+    <div className="ErrorWrapper">
+     404  Page Not Found
+    </div>
+  )
+};
 
 Error.propTypes = {
   // bla: PropTypes.string,

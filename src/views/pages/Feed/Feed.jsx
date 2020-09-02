@@ -1,16 +1,17 @@
 import React from 'react';
 import { makeStyles, Grid, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
-import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
+import ConnectCard from '../../../components/Cards/ConnectCard';
 import { Link as RLink } from 'react-router-dom';
-import ConnectSuggestCard from '../../app/ui/components/Cards/ConnectSuggestCard';
-import PostCard from '../../app/ui/components/Cards/PostCard';
+import ConnectSuggestCard from '../../../components/Cards/ConnectSuggestCard';
+import PostCard from '../../../components/Cards/PostCard';
+// import useAPI from '../../app/hooks/useAPI'
 const useStyles = makeStyles(theme => ({
 	root: {
 
 	},
 	bigGap: {
-		padding: theme.spacing(2)
+		padding: theme.spacing(2),
 	},
 	connectionSuggestTitle: {
 		color: theme.palette.primary.main,
@@ -35,12 +36,14 @@ const useStyles = makeStyles(theme => ({
 		margin: theme.spacing(2, 0)
 
 	},
-	paddingLarge:{
-		padding: theme.spacing(0,0,0,4)
+	paddingLarge: {
+		padding: theme.spacing(0, 0, 0, 4)
 	}
 }));
-function Feed({ connectionRequest }) {
+function Feed(props) {
+	const { connectionRequest } = props;
 	const classes = useStyles();
+	// useAPI();
 	// const connectReq = connectionRequest.filter((item,index) => index !== (connectionRequest.length - 1));
 	const connectReq = connectionRequest.slice(0, 4);
 	return (
@@ -76,7 +79,7 @@ function Feed({ connectionRequest }) {
 						commentsCount={4}
 						sharesCount={1}
 					/>
-			<div className={classes.bigGap} />
+					<div className={classes.bigGap} />
 
 					<PostCard
 						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
@@ -87,7 +90,7 @@ function Feed({ connectionRequest }) {
 						sharesCount={1}
 						postText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe illum, aspernatur magnam ducimus ea nulla? Reiciendis optio sapiente velit veritatis voluptatibus, dolore distinctio praesentium accusamus ullam, placeat aliquid, aliquam nisi."
 					/>
-			<div className={classes.bigGap} />
+					<div className={classes.bigGap} />
 
 					<PostCard
 						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
