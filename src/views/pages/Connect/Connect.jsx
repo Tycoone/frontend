@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles, Paper, Grid } from '@material-ui/core'
 import { Card, CardContent, Typography } from '@material-ui/core'
-import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
+import ConnectCard from '../../../components/Cards/ConnectCard';
 // import  PropTypes  from 'prop-types'
 const useStyles = makeStyles((theme) => ({
   root: {

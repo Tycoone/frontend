@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles, Grid, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
-import ConnectCard from '../../app/ui/components/Cards/ConnectCard';
+import ConnectCard from '../../../components/Cards/ConnectCard';
 import { Link as RLink } from 'react-router-dom';
-import ConnectSuggestCard from '../../app/ui/components/Cards/ConnectSuggestCard';
-import PostCard from '../../app/ui/components/Cards/PostCard';
+import ConnectSuggestCard from '../../../components/Cards/ConnectSuggestCard';
+import PostCard from '../../../components/Cards/PostCard';
 // import useAPI from '../../app/hooks/useAPI'
 const useStyles = makeStyles(theme => ({
 	root: {
