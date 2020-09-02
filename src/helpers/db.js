@@ -8,7 +8,7 @@ export const userDetails = {
     currentLocation: "Lagos, Nigeria",
     connections: 500,
     images: {
-        profileImage: "/assets/images/nzaki.jpg",
+        profileImage: "/assets/images/nzaki.png",
         coverImage: "/assets/images/coverImage_default.jpg",
     },
     about: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt repellendus quas earum amet tenetur omnis fugit consequuntur pariatur? Eum atque consequatur ducimus architecto dicta nisi officiis sunt incidunt delectus odio.Autem itaque repellat fuga suscipit laboriosam eos tempora consequatur distinctio dicta temporibus, dolore inventore consectetur a voluptates, eligendi molestiae nulla? Ad ullam sint ipsum officia aut numquam natus magnam.",
@@ -95,7 +95,7 @@ export const userDetails = {
             id: 1221,
             name: "Nzaki Michael",
             details: "CTO at Tech Skills Hack",
-            profileImage: "/assets/images/nzaki.jpg"
+            profileImage: "/assets/images/nzaki.png"
         },
         {
             id: 1232,
