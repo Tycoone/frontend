@@ -72,7 +72,7 @@ function Feed(props) {
 			<Grid container>
 				<Grid item md={8} xs={12}>
 					<PostCard
-						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
+						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.png" }}
 						time="10 mins ago"
 						media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
 						likes={10}
@@ -82,7 +82,7 @@ function Feed(props) {
 					<div className={classes.bigGap} />
 
 					<PostCard
-						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
+						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.png" }}
 						time="10 mins ago"
 						media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
 						likes={10}
@@ -93,7 +93,7 @@ function Feed(props) {
 					<div className={classes.bigGap} />
 
 					<PostCard
-						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.jpg" }}
+						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.png" }}
 						time="10 mins ago"
 						// media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
 						likes={10}
