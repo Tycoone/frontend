@@ -142,6 +142,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 const TLink = (props) => (
+
   <span>
     <RLink
       color="secondary"
@@ -287,7 +288,7 @@ const ProfileMenu = ({ mode }) => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose} >
-          <TLink className={classes.links} to="/profile">Profile</TLink>
+          <RLink className={classes.links} to="/profile">Profile</RLink>
         </MenuItem>
         <MenuItem onClick={handleClose}>My Account </MenuItem>
         <MenuItem >Mode
