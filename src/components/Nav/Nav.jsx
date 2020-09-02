@@ -274,7 +274,7 @@ const ProfileMenu = ({ mode }) => {
     setAnchorEl(null);
   };
   return (
-    <IconLink name="MyProfile">
+    <>
       <IconButton onClick={handleClick} aria-controls="nav-profile-menu" aria-haspopup="true" className={classes.btsmall}>
         <Avatar alt="Profile Picture" src="/assets/images/nzaki.jpg" className={classes.small}></Avatar>
       </IconButton>
@@ -305,7 +305,7 @@ const ProfileMenu = ({ mode }) => {
               </RLink>
         </MenuItem>
       </Menu>
-    </IconLink>
+    </>
   )
 }
 
