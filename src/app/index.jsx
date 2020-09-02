@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Error404 from '../views/pages/Error/Error-404';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { AuthProvider } from './auth/AuthContext'
-import { ModeProvider } from './auth/ModeContext'
+// import { AuthProvider } from './auth/AuthContext'
+// import { ModeProvider } from './auth/ModeContext'
 import Nav from '../components/Nav/Nav';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signin from '../views/pages/signin';
@@ -19,7 +19,7 @@ import { ProtectedRoute } from '../auth/protected-routes'
 const useStyles = makeStyles((theme) => ({
     root: {
         // Work on Dark Mode Here
-        backgroundColor: theme.palette.type === 'light' ? '#fcfcfc' : 'theme.palette.background',
+        backgroundColor: theme.palette.type === 'light' ? '#fcfcfc' : theme.palette.background,
         minHeight: '100vh',
         transition: 'all 0.1s',
     },
@@ -74,14 +74,14 @@ function App() {
         },
     });
     return (
-        <AuthProvider>
-            <ModeProvider>
+        // <AuthProvider>
+        //     <ModeProvider>
 
                 <ThemeProvider theme={theme}>
                     <AppRoute mode={[darkMode, setDarkMode]} />
                 </ThemeProvider>
-            </ModeProvider>
-        </AuthProvider>
+        //     </ModeProvider>
+        // </AuthProvider>
 
     )
 }
