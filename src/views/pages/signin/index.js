@@ -3,62 +3,16 @@ import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import './styles.css';
-import { Container, makeStyles, fade, Button, Checkbox, FormControlLabel, Typography } from '@material-ui/core';
+import { Container, makeStyles, Button, Checkbox, FormControlLabel, Typography } from '@material-ui/core';
 import { Link } from '@material-ui/core';
 import { Link as RLink } from 'react-router-dom';
 import Authpage from '../authpage'
 import auth from '../../../auth/auth'
-
-const useStyles = makeStyles((theme) => {
-    return {
-        paper: {
-            margin: theme.spacing(10, 4),
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-        },
-        welcome: {
-            fontStyle: 'normal',
-            fontWeight: '600',
-            fontSize: '30px',
-            lineHeight: '49px',
-            color: '#000000',
-            textAlign: 'center'
-        },
-        signinText: {
-            fontStyle: 'normal',
-            fontWeight: 'normal',
-            fontSize: '20px',
-            lineHeight: '45px',
-            color: '#000000',
-            textAlign: 'center'
-        },
-        formContainer: {
-            padding: theme.spacing(2, 0)
-        },
-        form: {
-            width: '100%'
-        },
-        input: {
-            background: '#FCFCFC',
-            borderColor: ' rgba(52, 52, 52, 0.24)',
-        },
-        submit: {
-            margin: theme.spacing(3, 0, 2),
-            padding: "15px",
-            backgroundColor: theme.palette.primary.main,
-            '&:hover': {
-                backgroundColor: fade(theme.palette.primary.main, 0.7)
-            }
-        },
-        forgotPasword: {
-            float: 'right',
-            margin: '9px 2px'
-        }
-    }
-});
+import { signinStyle } from './Signin.style'
+const useStyles = makeStyles(signinStyle);
 const Signin = (props) => {
     const styles = useStyles();
+
     // const [login, setLogin] = useContext();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -143,7 +97,7 @@ const Signin = (props) => {
                                             className={styles.submit}
                                             disableElevation
                                             onClick={
-                                                ()=>auth.login(()=>window.location="/")
+                                                () => auth.login(() => window.location = "/")
                                             }
                                         >
                                             Sign In

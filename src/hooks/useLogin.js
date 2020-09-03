@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const useLogin = ({ email, password }) => {
-    const [token, setData] = useState();
+    const [data, setData] = useState();
     const [isAuth, setIsAuth] = useState(false)
+    const [token, setToken] = useState('')
 
     useEffect(() => {
         const config = {};
@@ -27,9 +28,10 @@ const useLogin = ({ email, password }) => {
 
     }, [email, password]);
 
-    console.log(token);
-
-    return { token, isAuth }
+    console.log(data);
+    setToken(data.message.token);
+    
+    return { data, isAuth, token }
 };
 
 export default useLogin;
