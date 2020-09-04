@@ -3,66 +3,30 @@ import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import './styles.css';
-import { Container, makeStyles, fade, Button, Checkbox, FormControlLabel, Typography } from '@material-ui/core';
-import { Link } from '@material-ui/core';
-import { Link as RLink } from 'react-router-dom';
+import {
+    Link,
+    Container,
+    makeStyles,
+    Button,
+    Checkbox,
+    FormControlLabel,
+    Typography
+} from '@material-ui/core';
+// import { Link as RLink } from 'react-router-dom';
 import Authpage from '../authpage'
 import auth from '../../../auth/auth'
+import { signinStyle } from './Signin.style'
+import store from '../../../hooks/useStorage';
 
-const useStyles = makeStyles((theme) => {
-    return {
-        paper: {
-            margin: theme.spacing(10, 4),
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-        },
-        welcome: {
-            fontStyle: 'normal',
-            fontWeight: '600',
-            fontSize: '30px',
-            lineHeight: '49px',
-            color: '#000000',
-            textAlign: 'center'
-        },
-        signinText: {
-            fontStyle: 'normal',
-            fontWeight: 'normal',
-            fontSize: '20px',
-            lineHeight: '45px',
-            color: '#000000',
-            textAlign: 'center'
-        },
-        formContainer: {
-            padding: theme.spacing(2, 0)
-        },
-        form: {
-            width: '100%'
-        },
-        input: {
-            background: '#FCFCFC',
-            borderColor: ' rgba(52, 52, 52, 0.24)',
-        },
-        submit: {
-            margin: theme.spacing(3, 0, 2),
-            padding: "15px",
-            backgroundColor: theme.palette.primary.main,
-            '&:hover': {
-                backgroundColor: fade(theme.palette.primary.main, 0.7)
-            }
-        },
-        forgotPasword: {
-            float: 'right',
-            margin: '9px 2px'
-        }
-    }
-});
+const useStyles = makeStyles(signinStyle);
 const Signin = (props) => {
     const styles = useStyles();
-    // const [login, setLogin] = useContext();
+
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    // const [loginData, setLoginData] = useState('')
+    // const [resData, setResData] = useState()
     const updateEmail = (e) => {
         setEmail(e.target.value)
     };
@@ -71,14 +35,40 @@ const Signin = (props) => {
     };
     const updateLogin = (e) => {
         e.preventDefault();
-        // setLogin(() => ({ email, password, isAuthenticated: true }));
 
+
+        var formdata = new FormData();
+        formdata.append("email", email);
+        formdata.append("password", password);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch("http://api-tycoone.tk/api/users/login", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                if (result.code === 200 || result.code === 201) {
+                    if (result.message.token) {
+                        store.setToken(
+                            JSON.stringify({
+                                "token": result.message.token,
+                                "expiresAt": result.message.expireAt
+                            })
+                        )
+                        auth.login(()=>{window.location = "/"})
+                    }
+                }
+            })
+            .catch(error => console.error('error', error));
     }
-
     return (
         <Authpage>
             <Grid container>
-                <Grid item xs={0} sm={0} md={2} lg={2}></Grid>
+                <Grid item xs={false} sm={false} md={2} lg={2}></Grid>
                 <Grid item xs={12} sm={12} md={8} lg={8}>
                     <Box>
                         <Container maxWidth="sm">
@@ -90,7 +80,7 @@ const Signin = (props) => {
                                     Please sign in to continue
                             </Typography>
                                 <div className={styles.formContainer} >
-                                    <form className={styles.form} noValidate method="post"
+                                    <form className={styles.form} method="post"
                                         onSubmit={updateLogin}>
                                         <TextField
                                             className={styles.input}
@@ -103,6 +93,7 @@ const Signin = (props) => {
                                             autoComplete="email"
                                             value={email}
                                             onChange={updateEmail}
+                                            required
                                         // autoFocus
                                         />
                                         <TextField
@@ -117,7 +108,7 @@ const Signin = (props) => {
                                             value={password}
                                             autoComplete="current-pasword"
                                             onChange={updatePassword}
-
+                                            required
                                         />
                                         <Grid container>
                                             <Grid item xs={6} sm={6} md={6}>
@@ -142,19 +133,15 @@ const Signin = (props) => {
                                             color="primary"
                                             className={styles.submit}
                                             disableElevation
-                                            onClick={
-                                                ()=>auth.login(()=>window.location="/")
-                                            }
+
                                         >
                                             Sign In
                                     </Button>
                                         <Typography style={{ textAlign: 'center' }}>
                                             Dont’t have an account? {' '}
-                                            <RLink to="/signup">
-                                                <Link color="primary" className={styles.signup}>
-                                                    SignUp
+                                            <Link href="/signup" color="primary" className={styles.signup}>
+                                                SignUp
                                             </Link>
-                                            </RLink>
                                         </Typography>
                                     </form>
                                 </div>
@@ -162,7 +149,7 @@ const Signin = (props) => {
                         </Container>
                     </Box>
                 </Grid>
-                <Grid item xs={0} sm={0} md={2} lg={2}></Grid>
+                <Grid item xs={false} sm={false} md={2} lg={2}></Grid>
             </Grid>
 
         </Authpage>

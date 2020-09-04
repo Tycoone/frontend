@@ -1,21 +1,19 @@
 // import { useLogin } from '../hooks/useLogin'
-
+import localStore from '../hooks/useStorage'
 class Auth {
     constructor() {
-        this.isAuthenticated = localStorage.getItem('TYCOONES_isAuthenticated');
-
+        this.isAuthenticated = localStore.getAuth()
     }
 
     login(cb) {
         this.isAuthenticated = true;
-
-        localStorage.setItem('TYCOONES_isAuthenticated', true)
+        localStore.setAuth(true)
         cb();
     }
 
     logout(cb) {
         this.isAuthenticated = false;
-        localStorage.removeItem('TYCOONES_isAuthenticated');
+        localStore.removeToken();
         cb();
     }
 
