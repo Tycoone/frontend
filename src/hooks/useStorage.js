@@ -18,10 +18,26 @@ class Storage {
             .then(result => token = result)
             .catch(error => console.log('error', error));
 
-        return token;
+        this.setToken(token);
     }
-    updateToken = () => {
-        // this.token;
+    removeToken(){
+        localStorage.removeItem('TYCOONES_USER_TOKEN');
+    }
+    getToken(){
+        return this.token;
+    }
+    setToken(token){
+        localStorage.setItem('TYCOONES_USER_TOKEN',token);
+    }
+// Auth
+    getAuth(){
+        return localStorage.getItem('TYCOONES_isAuthenticated');
+    }
+    setAuth(value){
+        localStorage.setItem('TYCOONES_isAuthenticated', value)
+    }
+    removeAuth(){
+        localStorage.removeItem('TYCOONES_isAuthenticated');
     }
 
 }

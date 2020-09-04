@@ -11,7 +11,7 @@ const useStyles = makeStyles(navStyles);
 
 const IconLink = (props) => {
   const classes = useStyles();
-  console.log(props)
+  // console.log(props)
   var color;
   if(props.children !== undefined){
     color = props.children.props.color;

@@ -14,8 +14,9 @@ import {
 } from '@material-ui/core';
 // import { Link as RLink } from 'react-router-dom';
 import Authpage from '../authpage'
-// import auth from '../../../auth/auth'
+import auth from '../../../auth/auth'
 import { signinStyle } from './Signin.style'
+import store from '../../../hooks/useStorage';
 
 const useStyles = makeStyles(signinStyle);
 const Signin = (props) => {
@@ -51,8 +52,14 @@ const Signin = (props) => {
             .then(result => {
                 console.log(result);
                 if (result.code === 200 || result.code === 201) {
-                    if(result.token){
-                        
+                    if (result.message.token) {
+                        store.setToken(
+                            JSON.stringify({
+                                "token": result.message.token,
+                                "expiresAt": result.message.expireAt
+                            })
+                        )
+                        auth.login(()=>{window.location = "/"})
                     }
                 }
             })

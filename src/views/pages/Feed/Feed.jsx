@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles, Grid, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import ConnectCard from '../../../components/Cards/ConnectCard';
 import { Link as RLink } from 'react-router-dom';
 import ConnectSuggestCard from '../../../components/Cards/ConnectSuggestCard';
 import PostCard from '../../../components/Cards/PostCard';
-// import useAPI from '../../app/hooks/useAPI'
+import axios from 'axios'
+import localStore from '../../../hooks/useStorage.js'
 const useStyles = makeStyles(theme => ({
 	root: {
 
@@ -40,11 +41,39 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(0, 0, 0, 4)
 	}
 }));
+
+
+
+
 function Feed(props) {
 	const { connectionRequest } = props;
 	const classes = useStyles();
-	// useAPI();
-	// const connectReq = connectionRequest.filter((item,index) => index !== (connectionRequest.length - 1));
+	const [posts, setPosts] = useState([])
+
+	const token = localStore.getToken();
+	useEffect(() => {
+		const config = {
+			headers: { Authorization: `Bearer ${token}` }
+		};
+
+		const bodyParameters = {};
+		const fetch = () => {
+			axios
+				.get("http://api-tycoone.tk/api/posts/",
+					bodyParameters,
+					config
+				)
+				.then(res => {
+					// setPosts(res.message.posts)
+					console.log(res)
+				})
+				.catch(err => console.error(err));
+		}
+		fetch();
+	}, [token]);
+	// console.log(posts)
+
+
 	const connectReq = connectionRequest.slice(0, 4);
 	return (
 		<div className={classes.root}>
@@ -80,27 +109,6 @@ function Feed(props) {
 						sharesCount={1}
 					/>
 					<div className={classes.bigGap} />
-
-					<PostCard
-						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.png" }}
-						time="10 mins ago"
-						media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
-						likes={10}
-						commentsCount={4}
-						sharesCount={1}
-						postText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe illum, aspernatur magnam ducimus ea nulla? Reiciendis optio sapiente velit veritatis voluptatibus, dolore distinctio praesentium accusamus ullam, placeat aliquid, aliquam nisi."
-					/>
-					<div className={classes.bigGap} />
-
-					<PostCard
-						user={{ name: "Nzaki Michael", avatar: "/assets/images/nzaki.png" }}
-						time="10 mins ago"
-						// media={{ isImage: true, src: '/assets/images/coverImage_default.jpg' }}
-						likes={10}
-						commentsCount={4}
-						sharesCount={1}
-						postText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe illum, aspernatur magnam ducimus ea nulla? Reiciendis optio sapiente velit veritatis voluptatibus, dolore distinctio praesentium accusamus ullam, placeat aliquid, aliquam nisi."
-					/>
 				</Grid>
 				<Grid item md={4} xs={12} >
 					<div className={classes.paddingLarge}>
