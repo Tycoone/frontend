@@ -52,26 +52,34 @@ function Feed(props) {
 
 	const token = localStore.getToken();
 	useEffect(() => {
-		const config = {
-			headers: { Authorization: `Bearer ${token}` }
-		};
 
-		const bodyParameters = {};
-		const fetch = () => {
-			axios
-				.get("http://api-tycoone.tk/api/posts/",
-					bodyParameters,
-					config
-				)
-				.then(res => {
-					// setPosts(res.message.posts)
-					console.log(res)
-				})
-				.catch(err => console.error(err));
+		// var config = {
+		// 	method: 'get',
+		// 	url: 'http://api-tycoone.tk/api/posts/',
+		// 	headers: { Authorization: `Bearer ${token}` }
+		// };
+		// const fetch = () => {
+		// 	axios(config )
+		// 		.then(res => {
+		// 			setPosts(res.message.posts)
+		// 			console.log(res)
+		// 		})
+		// 		.catch(err => console.error(err));
+		// }
+		// fetch();
+		const fetchPosts = () => {
+			fetch('http://api-tycoone.tk/api/posts/', {
+				method: 'GET',
+				headers: new Headers({
+				  Authorization: `Bearer ${token}`,
+				}),
+			  })
+			  .then((response) => response.json())
+			  .then(post=>console.log(post));
 		}
-		fetch();
+		fetchPosts();
 	}, [token]);
-	// console.log(posts)
+	console.log(posts)
 
 
 	const connectReq = connectionRequest.slice(0, 4);
