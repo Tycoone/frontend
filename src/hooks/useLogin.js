@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const useLogin = ({ email, password }) => {
-    const [data, setData] = useState();
+    const [data, setData] = useState('');
     const [isAuth, setIsAuth] = useState(false)
-    const [token, setToken] = useState('')
 
-    useEffect(() => {
+  
         const config = {};
         const bodyParameters = {
             email,
@@ -14,7 +13,7 @@ const useLogin = ({ email, password }) => {
         };
         const fetch = () => {
             axios
-                .get("http://api-tycoone.tk/api/user/login",
+                .post("http://api-tycoone.tk/api/users/login",
                     bodyParameters,
                     config
                 )
@@ -26,12 +25,10 @@ const useLogin = ({ email, password }) => {
         }
         fetch();
 
-    }, [email, password]);
-
     console.log(data);
-    setToken(data.message.token);
-    
-    return { data, isAuth, token }
+    // setToken(data.message.token);
+
+    return { data, isAuth }
 };
 
 export default useLogin;
