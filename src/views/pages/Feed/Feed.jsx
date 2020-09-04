@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, Grid, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import ConnectCard from '../../../components/Cards/ConnectCard';
 import { Link as RLink } from 'react-router-dom';
 import ConnectSuggestCard from '../../../components/Cards/ConnectSuggestCard';
 import PostCard from '../../../components/Cards/PostCard';
-import axios from 'axios'
+// import axios from 'axios'
 import localStore from '../../../hooks/useStorage.js'
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 function Feed(props) {
 	const { connectionRequest } = props;
 	const classes = useStyles();
-	const [posts, setPosts] = useState([])
+	// const [posts, setPosts] = useState([])
 
 	const token = localStore.getToken();
 	useEffect(() => {
@@ -79,7 +79,7 @@ function Feed(props) {
 		}
 		fetchPosts();
 	}, [token]);
-	console.log(posts)
+	// console.log(posts)
 
 
 	const connectReq = connectionRequest.slice(0, 4);
