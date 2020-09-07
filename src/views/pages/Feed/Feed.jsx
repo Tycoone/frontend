@@ -50,7 +50,10 @@ function Feed(props) {
 	const classes = useStyles();
 	// const [posts, setPosts] = useState([])
 
-	const token = localStore.getToken();
+	const tokenG = JSON.parse(localStore.getToken());
+	const token = tokenG.token;
+
+
 	useEffect(() => {
 
 		// var config = {
@@ -69,13 +72,17 @@ function Feed(props) {
 		// fetch();
 		const fetchPosts = () => {
 			fetch('http://api-tycoone.tk/api/posts/', {
-				method: 'GET',
-				headers: new Headers({
-				  Authorization: `Bearer ${token}`,
-				}),
-			  })
-			  .then((response) => response.json())
-			  .then(post=>console.log(post));
+				method: 'POST',
+				mode: 'cors',
+				cache: 'no-cache',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'Authorization': 'Bearer ' + token,
+				},
+			})
+				.then((response) => response.json())
+				.then(post => console.log(post));
 		}
 		fetchPosts();
 	}, [token]);

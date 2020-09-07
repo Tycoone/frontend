@@ -47,7 +47,7 @@ const Signin = (props) => {
             redirect: 'follow'
         };
 
-        fetch("http://api-tycoone.tk/api/users/login", requestOptions)
+        fetch("https://api-tycoone.tk/api/users/login", requestOptions)
             .then(response => response.json())
             .then(result => {
                 console.log(result);
