@@ -71,8 +71,8 @@ function Feed(props) {
 		// }
 		// fetch();
 		const fetchPosts = () => {
-			fetch('https://api-tycoone.tk/api/posts/', {
-				method: 'POST',
+			fetch('http://api-tycoone.tk/api/posts/', {
+				method: 'GET',
 				mode: 'cors',
 				cache: 'no-cache',
 				headers: {
