@@ -71,15 +71,19 @@ function Feed(props) {
 		// }
 		// fetch();
 		const fetchPosts = () => {
+			let data={
+				'Authorization': 'Bearer ' + token,
+			}
 			fetch('http://api-tycoone.tk/api/posts/', {
-				method: 'GET',
+				method: 'POST',
 				mode: 'cors',
 				cache: 'no-cache',
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json',
-					'Authorization': 'Bearer ' + token,
-				},
+// 				headers: {
+// 					'Accept': 'application/json',
+// 					'Content-Type': 'application/json',
+// 					'Authorization': 'Bearer ' + token,
+// 				},
+				body: JSON.stringify(data)
 			})
 				.then((response) => response.json())
 				.then(post => console.log(post));
