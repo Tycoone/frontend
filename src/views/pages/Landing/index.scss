@@ -1,0 +1,110 @@
+@import '../../../assets/styles/scss/colors';
+@import '../../../assets/styles/scss/variables';
+
+::selection{
+    background: $secondary;
+    color: $white
+}
+body {
+    background-color: $white;
+    max-width: 1366px;
+    margin: auto;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+    margin: 0px;
+    font-family: $font-family;
+    font-style: normal;
+    color: $secondary;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+p {
+    color: $secondary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    opacity: 0.89;
+    line-height: 29px;
+    filter: opacity(0.89);
+}
+
+/* Grid */
+.row {
+    display: flex;
+    // flex-wrap: wrap;
+}
+
+.col.l6{
+    width: 50%;
+}
+
+.container {
+    padding: 100px;
+}
+
+.padding-tb-64 {
+    padding: 64px 0;
+}
+
+.shc {
+    h2,
+    p {
+        max-width: 525px;
+    }
+
+}
+.shc-img{
+    // padding: 0 64px;
+}
+
+// .header-image {
+//     img {
+//         width: 100%;
+//         max-width: 700px;
+//         height: auto;
+//     }
+// }
+
+.header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    position: relative;
+    padding: 70px;
+}
+
+.header-content {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    padding: 10px 140px;
+    background-color: $white;
+    height: 273px;
+    font-family: $font-family;
+    font-style: normal;
+    color: $secondary;
+
+    p {
+        opacity: 0.89;
+        filter: opacity(0.89);
+    }
+
+
+
+    .cta-buttons {
+        padding: 10px;
+    }
+}
